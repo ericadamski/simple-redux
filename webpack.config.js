@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
     entry: [
         'babel-polyfill',
@@ -16,14 +14,11 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.(css|scss)$/,
-                include: [
-                    path.resolve(__dirname, 'lib/components'),
-                ],
+                test: /\.(scss)$/,
                 loaders: [
-                    'style',
-                    'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-                    'sass',
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader',
                 ],
             },
             {

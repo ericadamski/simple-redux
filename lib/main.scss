@@ -1,0 +1,27 @@
+@import 'bourbon/bourbon';
+@import url('https://fonts.googleapis.com/css?family=Barrio|Roboto');
+@import url('http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css');
+
+$primary: #D5FDFF;
+$secondary: #9DE5FF;
+$acc: #ACA8FF;
+$text-color: #F8F8F8;
+
+@mixin center() {
+  @include position(relative);
+  @include display(flex);
+  @include flex-direction(column);
+  @include align-items(center);
+  @include justify-content(center);
+}
+
+html,
+body {
+  @include center();
+  width: 100vw;
+  height: 100vh;
+  font-family: Roboto, sans-serif;
+  background: $secondary;
+  color: $text-color;
+  user-select: none;
+}

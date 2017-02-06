@@ -1,5 +1,14 @@
 import React from 'react';
 
-const Main = () => <h1> Hello World! </h1>;
+import { Clock } from './components/clock';
+
+import './main.scss';
+
+const Main = ({ title }) => (
+    <div>
+        <h1>{ title || 'Clock' }</h1>
+        <Clock />
+    </div>
+);
 
 export default Main;
