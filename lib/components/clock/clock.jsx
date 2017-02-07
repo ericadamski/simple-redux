@@ -5,9 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import * as actions from '../../actions/clock';
 
-import './clock.scss';
-
-class Clock extends React.Component {
+export class Clock extends React.Component {
     componentDidMount() {
         this.props.getTime();
         setInterval(() => this.props.updateTime(), 500);

@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
 
-import { Clock } from '../clock';
+import { Clock } from '../clock/clock';
 
 describe('clock', () => {
     it('should render', () => {
@@ -25,7 +25,7 @@ describe('clock', () => {
         expect(wrapper.find('div').length).to.be.at.least(1);
     });
 
-    it('should have a class name clock', () => {
+    it('should have the class name clock', () => {
         // Arrange
 
         // Act
@@ -35,7 +35,7 @@ describe('clock', () => {
         expect(wrapper.find('div.clock').length).to.equal(1);
     });
 
-    it('should have a class name time', () => {
+    it('should have the class name time', () => {
         // Arrange
 
         // Act
