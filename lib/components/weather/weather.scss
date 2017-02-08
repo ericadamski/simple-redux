@@ -1,0 +1,47 @@
+@import url('http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css');
+
+.weather {
+  .icon {
+    &.part-sunny {
+      &:before {
+        font-family: Ionicons;
+        content: \f475;
+      }
+    }
+
+    &.sunny {
+      &:before {
+        font-family: Ionicons;
+        content: \f4b6;
+      }
+    }
+
+    &.cloudy {
+      &:before {
+        font-family: Ionicons;
+        content: \f409;
+      }
+    }
+
+    &.rain {
+      &:before {
+        font-family: Ionicons;
+        content: \f494;
+      }
+    }
+
+    &.snow {
+      &:before {
+        font-family: Ionicons;
+        content: \f4ae;
+      }
+    }
+
+    &.thunder {
+      &:before {
+        font-family: Ionicons;
+        content: \f4bc;
+      }
+    }
+  }
+}
