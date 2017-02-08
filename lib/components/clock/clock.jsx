@@ -1,15 +1,9 @@
 import React from 'react';
 
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-
 import * as actions from '../../actions/clock';
 
 export class Clock extends React.Component {
-    componentDidMount() {
-        this.props.getTime();
-        setInterval(() => this.props.updateTime(), 500);
-    }
+    componentDidMount() {}
 
     render() {
         const { time } = this.props;
@@ -24,14 +18,4 @@ export class Clock extends React.Component {
     }
 }
 
-const mapStateToProps = () => {
-    return state => {
-        const { clock } = state;
-
-        return { ...clock };
-    };
-};
-
-const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(Clock);
+export default Clock;
