@@ -13,9 +13,15 @@ export class Weather extends React.Component {
     render() {
         const { data } = this.props;
 
-        console.log(data);
-
-        return <h1>{data.toString()}</h1>;
+        return (
+            <div className="weather">
+                <div className={`icon w${data.icon}`} />
+                <div>
+                    <h4>{ data.condition }</h4>
+                    <h2>{ data.temp }</h2>
+                </div>
+            </div>
+        );
     }
 }
 
