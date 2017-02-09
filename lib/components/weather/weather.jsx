@@ -1,5 +1,7 @@
 import React from 'react';
 
+import moment from 'moment';
+
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -8,6 +10,7 @@ import * as actions from '../../actions/weather';
 export class Weather extends React.Component {
     componentDidMount() {
         this.props.requestWeather();
+        setInterval(() => this.props.requestWeather(), moment.duration(10, 'minutes').asMilliseconds());
     }
 
     render() {
