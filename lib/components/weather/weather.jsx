@@ -7,7 +7,7 @@ import * as actions from '../../actions/weather';
 
 export class Weather extends React.Component {
     componentDidMount() {
-        this.props.getWeather();
+        this.props.requestWeather();
     }
 
     render() {
