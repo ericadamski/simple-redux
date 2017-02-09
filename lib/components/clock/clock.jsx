@@ -7,6 +7,12 @@ import { getTime, updateTime } from '../../actions/clock';
 import { getTodaysDate } from '../../actions/date';
 
 export class Clock extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.renderCount = 0;
+    }
+
     componentDidMount() {
         this.props.getTime();
         this.props.getTodaysDate();
@@ -18,6 +24,8 @@ export class Clock extends React.Component {
             time,
             date,
         } = this.props;
+
+        // console.log(`Render count [clock.jsx]: ${this.renderCount++}`);
 
         return (
             <div className="clock">

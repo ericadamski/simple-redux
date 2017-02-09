@@ -27,65 +27,65 @@ $black: #225763;
     font-size: 1.75em;
     text-transform: capitalize;
   }
+}
 
-  .icon {
-    @include display(flex);
-    @include flex-direction(column);
-    @include justify-content(center);
-    @include align-items(center);
+.icon {
+  @include display(flex);
+  @include flex-direction(column);
+  @include justify-content(center);
+  @include align-items(center);
 
+  &:before {
+    font-size: 5em;
+    vertical-align: middle;
+  }
+
+  &.part-sunny,
+  &.w03d, &.w03n,
+  &.w02d, &.w02n {
     &:before {
-      font-size: 5em;
-      vertical-align: middle;
+      font-family: Ionicons;
+      content: '\f475';
     }
+  }
 
-    &.part-sunny,
-    &.w03d, &.w03n,
-    &.w02d, &.w02n {
-      &:before {
-        font-family: Ionicons;
-        content: '\f475';
-      }
+  &.sunny,
+  &.w01d, &.w01n {
+    &:before {
+      font-family: Ionicons;
+      content: '\f4b6';
     }
+  }
 
-    &.sunny,
-    &.w01d, &.w01n {
-      &:before {
-        font-family: Ionicons;
-        content: '\f4b6';
-      }
+  &.clouds,
+  &.w04d, &.w04n {
+    &:before {
+      font-family: Ionicons;
+      content: '\f409';
     }
+  }
 
-    &.clouds,
-    &.w04d, &.w04n {
-      &:before {
-        font-family: Ionicons;
-        content: '\f409';
-      }
+  &.rain,
+  &.w09d, &.w10d {
+    &:before {
+      font-family: Ionicons;
+      content: '\f494';
     }
+  }
 
-    &.rain,
-    &.w09d, &.w10d {
-      &:before {
-        font-family: Ionicons;
-        content: '\f494';
-      }
+  &.snow,
+  &.w13d {
+    &:before {
+      font-family: Ionicons;
+      content: '\f4ae';
     }
+  }
 
-    &.snow,
-    &.w13d {
-      &:before {
-        font-family: Ionicons;
-        content: '\f4ae';
-      }
-    }
-
-    &.thunder,
-    &.w11d {
-      &:before {
-        font-family: Ionicons;
-        content: '\f4bc';
-      }
+  &.thunder,
+  &.w11d {
+    &:before {
+      font-family: Ionicons;
+      content: '\f4bc';
     }
   }
 }
