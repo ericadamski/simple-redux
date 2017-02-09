@@ -74,7 +74,7 @@ $black: #225763;
   }
 
   &.snow,
-  &.w13d {
+  &.w13d, &.w13n {
     &:before {
       font-family: Ionicons;
       content: '\f4ae';
@@ -82,7 +82,7 @@ $black: #225763;
   }
 
   &.thunder,
-  &.w11d {
+  &.w11d, &.w11n {
     &:before {
       font-family: Ionicons;
       content: '\f4bc';
