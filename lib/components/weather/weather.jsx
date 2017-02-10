@@ -16,7 +16,10 @@ export class Weather extends React.Component {
 
     componentDidMount() {
         this.props.requestWeather();
-        setInterval(() => this.props.requestWeather(), moment.duration(10, 'minutes').asMilliseconds());
+        setInterval(
+            () => this.props.requestWeather(),
+            moment.duration(2, 'minutes').asMilliseconds()
+        );
     }
 
     render() {

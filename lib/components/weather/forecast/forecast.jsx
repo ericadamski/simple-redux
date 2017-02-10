@@ -24,7 +24,7 @@ class Forecast extends React.Component {
     render() {
         const { forecast } = this.props;
 
-        console.log(`Render count [forecast]: ${this.renderCount}`);
+        console.log(`Render count [forecast]: ${this.renderCount++}`);
 
         if (!forecast) return null;
 
