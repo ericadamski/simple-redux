@@ -1,7 +1,6 @@
 import React from 'react';
 import moment from 'moment';
 
-import { List } from 'immutable';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -12,19 +11,6 @@ class Forecast extends React.Component {
         super(props);
 
         this.renderCount = 0;
-        this.forecast = new List();
-    }
-
-    shouldComponentUpdate(props) {
-        const test = this.forecast.mergeDeep(props.forecast);
-
-        if (test !== this.forecast) {
-            this.forecast = test;
-
-            return true;
-        }
-
-        return false;
     }
 
     componentDidMount() {
@@ -50,10 +36,10 @@ class Forecast extends React.Component {
                             className="forecast-day"
                             key={JSON.stringify(weather).substr(index)}
                         >
-                            <span className={`icon w${weather.icon}`} />
+                            <span className={`icon w${weather.get('icon')}`} />
                             <div>
-                                <p className="desc">{weather.condition}</p>
-                                <p className="temp">{weather.temp}</p>
+                                <p className="desc">{weather.get('condition')}</p>
+                                <p className="temp">{weather.get('temp')}</p>
                             </div>
                         </div>
                     ))
@@ -64,11 +50,7 @@ class Forecast extends React.Component {
 }
 
 function mapStateToProps() {
-    return state => {
-        const { forecast } = state;
-
-        return { forecast: forecast.get('forecast') };
-    };
+    return state => ({ forecast: state.forecast })
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
