@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 
+import { List } from 'immutable';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -11,6 +12,19 @@ class Forecast extends React.Component {
         super(props);
 
         this.renderCount = 0;
+        this.forecast = new List();
+    }
+
+    shouldComponentUpdate(props) {
+        const test = this.forecast.mergeDeep(props.forecast);
+
+        if (test !== this.forecast) {
+            this.forecast = test;
+
+            return true;
+        }
+
+        return false;
     }
 
     componentDidMount() {
