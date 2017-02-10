@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 
+import { List } from 'immutable';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -11,30 +12,43 @@ class Forecast extends React.Component {
         super(props);
 
         this.renderCount = 0;
+        this.forecast = new List();
+    }
+
+    shouldComponentUpdate(props) {
+        const test = this.forecast.mergeDeep(props.forecast);
+
+        if (test !== this.forecast) {
+            this.forecast = test;
+
+            return true;
+        }
+
+        return false;
     }
 
     componentDidMount() {
         this.props.requestForecast();
         setInterval(
             () => this.props.requestForecast(),
-            moment.duration(2, 'minutes').asMilliseconds()
+            moment.duration(1, 'minute').asMilliseconds()
         );
     }
 
     render() {
         const { forecast } = this.props;
 
-        console.log(`Render count [forecast]: ${this.renderCount++}`);
+        console.log(`Render count [forecast]: ${++this.renderCount}`);
 
         if (!forecast) return null;
 
         return (
             <div className="forecast">
                 {
-                    forecast.map(weather => (
+                    forecast.map((weather, index) => (
                         <div
                             className="forecast-day"
-                            key={JSON.stringify(weather)}
+                            key={JSON.stringify(weather).substr(index)}
                         >
                             <span className={`icon w${weather.icon}`} />
                             <div>
@@ -53,7 +67,7 @@ function mapStateToProps() {
     return state => {
         const { forecast } = state;
 
-        return { ...forecast };
+        return { forecast: forecast.get('forecast') };
     };
 }
 

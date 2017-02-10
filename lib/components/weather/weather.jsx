@@ -18,22 +18,22 @@ export class Weather extends React.Component {
         this.props.requestWeather();
         setInterval(
             () => this.props.requestWeather(),
-            moment.duration(2, 'minutes').asMilliseconds()
+            moment.duration(1, 'minute').asMilliseconds()
         );
     }
 
     render() {
         const { data } = this.props;
 
-        console.log(`Render count [weather.jsx]: ${this.renderCount++}`);
+        console.log(`Render count [weather.jsx]: ${++this.renderCount}`);
 
         return (
             <div>
                 <div className="weather">
-                    <div className={`icon w${data.icon}`} />
+                    <div className={`icon w${data.get('icon')}`} />
                     <div>
-                        <h4>{ data.condition }</h4>
-                        <h2>{ data.temp }</h2>
+                        <h4>{ data.get('condition') }</h4>
+                        <h2>{ data.get('temp') }</h2>
                     </div>
                 </div>
                 <Forecast />
