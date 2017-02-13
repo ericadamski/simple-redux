@@ -15,8 +15,10 @@ export class Clock extends React.Component {
 
     componentDidMount() {
         this.props.getTime();
-        this.props.getTodaysDate();
-        setInterval(() => this.props.updateTime(), 500);
+        setInterval(() => {
+            this.props.getTodaysDate();
+            this.props.updateTime();
+        }, 500);
     }
 
     render() {
