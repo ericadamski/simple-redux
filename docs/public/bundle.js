@@ -14373,9 +14373,9 @@ function getURI(request) {
     var APPID = '&APPID=5f76af14cd2b833834cab55b98ed7e41';
     var UNITS = '&units=metric';
     var CITY = '?id=6094817';
-    var URI = 'https://api.openweathermap.org/data/2.5/';
+    var URI = '//api.openweathermap.org/data/2.5/';
 
-    return '//crossorigin.me/' + URI + request + CITY + APPID + UNITS;
+    return '' + URI + request + CITY + APPID + UNITS;
 }
 
 function action(type, data) {
