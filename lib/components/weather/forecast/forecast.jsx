@@ -1,30 +1,19 @@
 import React from 'react';
 import moment from 'moment';
 
-import { List } from 'immutable';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import { forecastSelector } from '../../../selectors/forecast';
+
 import * as actions from '../../../actions/forecast';
+import { hash } from '../../utils';
 
 class Forecast extends React.Component {
     constructor(props) {
         super(props);
 
         this.renderCount = 0;
-        this.forecast = new List();
-    }
-
-    shouldComponentUpdate(props) {
-        const test = this.forecast.mergeDeep(props.forecast);
-
-        if (test !== this.forecast) {
-            this.forecast = test;
-
-            return true;
-        }
-
-        return false;
     }
 
     componentDidMount() {
@@ -48,7 +37,7 @@ class Forecast extends React.Component {
                     forecast.map((weather, index) => (
                         <div
                             className="forecast-day"
-                            key={JSON.stringify(weather).substr(index)}
+                            key={hash({ weather }, __filename.replace('/', ''), Date.now() + index)}
                         >
                             <span className={`icon w${weather.get('icon')}`} />
                             <div>
@@ -64,7 +53,7 @@ class Forecast extends React.Component {
 }
 
 function mapStateToProps() {
-    return state => ({ forecast: state.forecast })
+    return state => ({ forecast: forecastSelector(state) })
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
