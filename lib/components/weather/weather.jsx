@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as actions from '../../actions/weather';
+import { weatherSelector } from '../../selectors/forecast';
 import { Forecast } from './forecast';
 
 export class Weather extends React.Component {
@@ -43,7 +44,7 @@ export class Weather extends React.Component {
 }
 
 function mapStateToProps() {
-    return state => ({ data: state.weather });
+    return state => ({ data: weatherSelector(state) });
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
