@@ -15,8 +15,10 @@ export class Clock extends React.Component {
 
     componentDidMount() {
         this.props.getTime();
-        this.props.getTodaysDate();
-        setInterval(() => this.props.updateTime(), 500);
+        setInterval(() => {
+            this.props.getTodaysDate();
+            this.props.updateTime();
+        }, 500);
     }
 
     render() {
@@ -25,7 +27,7 @@ export class Clock extends React.Component {
             date,
         } = this.props;
 
-        // console.log(`Render count [clock.jsx]: ${this.renderCount++}`);
+        console.log(`Render count [clock.jsx]: ${++this.renderCount}`);
 
         return (
             <div className="clock">
@@ -46,8 +48,8 @@ const mapStateToProps = () => {
         } = state;
 
         return {
-            ...clock,
-            ...date,
+            time: clock.get('time'),
+            date: date.get('date'),
         };
     };
 };
