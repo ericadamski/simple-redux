@@ -14373,7 +14373,7 @@ function getURI(request) {
     var APPID = '&APPID=5f76af14cd2b833834cab55b98ed7e41';
     var UNITS = '&units=metric';
     var CITY = '?id=6094817';
-    var URI = '//api.openweathermap.org/data/2.5/';
+    var URI = 'http://api.openweathermap.org/data/2.5/';
 
     return '' + URI + request + CITY + APPID + UNITS;
 }
