@@ -10,7 +10,7 @@ export class Clock extends React.Component {
     constructor(props) {
         super(props);
 
-        this.renderCount = 0;
+        // this.renderCount = 0;
     }
 
     componentDidMount() {
@@ -27,7 +27,7 @@ export class Clock extends React.Component {
             date,
         } = this.props;
 
-        console.log(`Render count [clock.jsx]: ${++this.renderCount}`);
+        // console.log(`Render count [clock.jsx]: ${++this.renderCount}`);
 
         return (
             <div className="clock">

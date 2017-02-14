@@ -16843,16 +16843,18 @@ function fetchForecast() {
                         })) })));
 
                 case 14:
-                    _context.next = 20;
+                    _context.next = 21;
                     break;
 
                 case 16:
                     _context.prev = 16;
                     _context.t1 = _context['catch'](0);
-                    _context.next = 20;
+
+                    console.log(_context.t1.message);
+                    _context.next = 21;
                     return (0, _effects.put)((0, _utils.action)(GET_FORECAST_FAILURE, new _immutable.Map({ forecast: new _immutable.List([_context.t1.message]) })));
 
-                case 20:
+                case 21:
                 case 'end':
                     return _context.stop();
             }
@@ -36165,10 +36167,9 @@ var Clock = exports.Clock = function (_React$Component) {
     function Clock(props) {
         _classCallCheck(this, Clock);
 
-        var _this = _possibleConstructorReturn(this, (Clock.__proto__ || Object.getPrototypeOf(Clock)).call(this, props));
+        return _possibleConstructorReturn(this, (Clock.__proto__ || Object.getPrototypeOf(Clock)).call(this, props));
 
-        _this.renderCount = 0;
-        return _this;
+        // this.renderCount = 0;
     }
 
     _createClass(Clock, [{
@@ -36189,8 +36190,7 @@ var Clock = exports.Clock = function (_React$Component) {
                 time = _props.time,
                 date = _props.date;
 
-
-            console.log('Render count [clock.jsx]: ' + ++this.renderCount);
+            // console.log(`Render count [clock.jsx]: ${++this.renderCount}`);
 
             return _react2.default.createElement(
                 'div',
@@ -36362,10 +36362,9 @@ var Forecast = function (_React$Component) {
     function Forecast(props) {
         _classCallCheck(this, Forecast);
 
-        var _this = _possibleConstructorReturn(this, (Forecast.__proto__ || Object.getPrototypeOf(Forecast)).call(this, props));
+        return _possibleConstructorReturn(this, (Forecast.__proto__ || Object.getPrototypeOf(Forecast)).call(this, props));
 
-        _this.renderCount = 0;
-        return _this;
+        // this.renderCount = 0;
     }
 
     _createClass(Forecast, [{
@@ -36383,8 +36382,7 @@ var Forecast = function (_React$Component) {
         value: function render() {
             var forecast = this.props.forecast;
 
-
-            console.log('Render count [forecast]: ' + ++this.renderCount);
+            // console.log(`Render count [forecast]: ${++this.renderCount}`);
 
             if (!forecast) return null;
 
@@ -36535,10 +36533,9 @@ var Weather = exports.Weather = function (_React$Component) {
     function Weather(props) {
         _classCallCheck(this, Weather);
 
-        var _this = _possibleConstructorReturn(this, (Weather.__proto__ || Object.getPrototypeOf(Weather)).call(this, props));
+        return _possibleConstructorReturn(this, (Weather.__proto__ || Object.getPrototypeOf(Weather)).call(this, props));
 
-        _this.renderCount = 0;
-        return _this;
+        // this.renderCount = 0;
     }
 
     _createClass(Weather, [{
@@ -36556,8 +36553,7 @@ var Weather = exports.Weather = function (_React$Component) {
         value: function render() {
             var data = this.props.data;
 
-
-            console.log('Render count [weather.jsx]: ' + ++this.renderCount);
+            // console.log(`Render count [weather.jsx]: ${++this.renderCount}`);
 
             return _react2.default.createElement(
                 'div',
