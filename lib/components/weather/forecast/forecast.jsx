@@ -53,7 +53,7 @@ class Forecast extends React.Component {
 }
 
 function mapStateToProps() {
-    return state => ({ forecast: forecastSelector(state) })
+    return state => ({ forecast: forecastSelector(state) });
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
