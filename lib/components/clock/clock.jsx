@@ -3,19 +3,33 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import * as actions from '../../actions/clock';
+import { getTime, updateTime } from '../../actions/clock';
+import { getTodaysDate } from '../../actions/date';
 
 export class Clock extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.renderCount = 0;
+    }
+
     componentDidMount() {
         this.props.getTime();
+        this.props.getTodaysDate();
         setInterval(() => this.props.updateTime(), 500);
     }
 
     render() {
-        const { time } = this.props;
+        const {
+            time,
+            date,
+        } = this.props;
+
+        // console.log(`Render count [clock.jsx]: ${this.renderCount++}`);
 
         return (
             <div className="clock">
+                <h1>{ date || 'Clock' }</h1>
                 <div className="time">
                     {time}
                 </div>
@@ -26,12 +40,23 @@ export class Clock extends React.Component {
 
 const mapStateToProps = () => {
     return state => {
-        const { clock } = state;
+        const {
+            clock,
+            date,
+        } = state;
 
-        return { ...clock };
+        return {
+            ...clock,
+            ...date,
+        };
     };
 };
 
-const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
+const mapDispatchToProps = dispatch =>
+    bindActionCreators({
+        getTime,
+        getTodaysDate,
+        updateTime,
+    }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Clock);
